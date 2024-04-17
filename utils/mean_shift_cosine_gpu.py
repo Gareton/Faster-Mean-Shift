@@ -215,7 +215,7 @@ def mean_shift_cosine(X, bandwidth=None, seeds=None,
                                         key=lambda tup: (tup[1], tup[0]),
                                         reverse=True)
             sorted_centers = np.array([tup[0] for tup in sorted_by_intensity])
-            unique = np.ones(len(sorted_centers), dtype=np.bool)
+            unique = np.ones(len(sorted_centers), dtype=bool)
             nbrs = NearestNeighbors(radius=bandwidth, metric='cosine').fit(sorted_centers)
             for i, center in enumerate(sorted_centers):
                 if unique[i]:
